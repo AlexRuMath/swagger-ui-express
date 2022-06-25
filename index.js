@@ -215,6 +215,7 @@ var swaggerInitFunction = function (swaggerDoc, opts) {
       res.sendStatus(404)
     } else if (trimQuery(req.url) === '/swagger-ui-init.js') {
       if (req.swaggerDoc) {
+        opts.swaggerDoc = req.swaggerDoc;
         swaggerInitFile = jsTplString.toString().replace('<% swaggerOptions %>', stringify(opts))
       }
       res.set('Content-Type', 'application/javascript')
